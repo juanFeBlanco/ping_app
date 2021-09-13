@@ -24,7 +24,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:hint="0 - 254"
-            android:inputType="textPersonName"
+            android:inputType="number"
             app:layout_constraintEnd_toStartOf="@+id/num2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +38,7 @@
             android:layout_marginEnd="32dp"
             android:ems="10"
             android:hint="0 - 254"
-            android:inputType="textPersonName"
+            android:inputType="number"
             app:layout_constraintEnd_toStartOf="@+id/num3"
             app:layout_constraintStart_toEndOf="@+id/num1"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +52,7 @@
             android:layout_marginEnd="15dp"
             android:ems="10"
             android:hint="0 - 254"
-            android:inputType="textPersonName"
+            android:inputType="number"
             app:layout_constraintEnd_toStartOf="@+id/num4"
             app:layout_constraintStart_toEndOf="@+id/num2"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,7 +65,7 @@
             android:layout_marginTop="5dp"
             android:ems="10"
             android:hint="0 - 254"
-            android:inputType="textPersonName"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/num3"
             app:layout_constraintTop_toTopOf="parent" />
@@ -107,7 +107,7 @@
             android:id="@+id/ipText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="70dp"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="307dp"
             android:text="ip"
