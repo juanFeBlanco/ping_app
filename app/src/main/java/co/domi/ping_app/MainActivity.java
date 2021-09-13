@@ -38,16 +38,16 @@ public class MainActivity extends AppCompatActivity {
         pingB.setOnClickListener(
                 (view) -> {
                     adjustInput();
-                    /*Intent pingIntent = new Intent(this, PingActivity.class);
+                    Intent pingIntent = new Intent(this, PingActivity.class);
                     pingIntent.putExtra("theIp", getIp());
-                    startActivity(pingIntent);*/
+                    startActivity(pingIntent);
                 }
         );
 
         buscarB.setOnClickListener(
                 (view)-> {
                         Intent SearchH = new Intent(this, SearchHostActivity.class);
-                        SearchH.putExtra("myIp", getIp());
+                        SearchH.putExtra("theIp", getIp());
                         startActivity(SearchH);
                 }
         );

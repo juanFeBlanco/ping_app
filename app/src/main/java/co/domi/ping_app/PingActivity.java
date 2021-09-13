@@ -52,5 +52,10 @@ public class PingActivity extends AppCompatActivity {
             }
         }).start();
 
+        backB.setOnClickListener(
+                (view) -> {
+                    finish();
+                }
+        );
     }
 }

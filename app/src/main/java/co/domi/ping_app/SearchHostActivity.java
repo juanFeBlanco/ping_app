@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Locale;
@@ -23,25 +24,30 @@ public class SearchHostActivity extends AppCompatActivity {
 
         ipsT = findViewById(R.id.hostsT);
         backHostB = findViewById(R.id.backHostBtn);
+        myIp = getIntent().getStringExtra("theIp");
+        String[] nums = myIp.split(".");
 
-        //myIp = getIntent().getStringExtra("myIp");
+        new Thread(() ->{
+            for (int i=0; i<254; i++) {
+                try {
+                    InetAddress pingInetAddress = InetAddress.getByName(nums[0]+"."+nums[1]+"."+nums[2]+"."+i);
 
-       new Thread(() ->{
+                    //verify f it is reachable
+                    if (pingInetAddress.isReachable(100)) {
+                        textHosts += nums[0]+"."+nums[1]+"."+nums[2]+"."+i+"\n";
+                    }
 
-            try {
-                InetAddress hostInetAddress = InetAddress.getByName(myIp);
-                int LocalIp = hostInetAddress.hashCode();
-                textHosts = formatIpAddress(LocalIp);
-
-                runOnUiThread(() -> {
-                    ipsT.setText(textHosts);
-                });
-
-            } catch (UnknownHostException e) {
-                e.printStackTrace();
+                    //Edit UI
+                    runOnUiThread(() -> {
+                        ipsT.setText(textHosts);
+                    });
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }).start();
-
 
         backHostB.setOnClickListener(
                 (view) -> {
